@@ -6,16 +6,18 @@ require('pry-byebug')
 
 runner = SqlRunner.new( {dbname: 'petsrus', host: 'localhost'}, )
 
-pet = Pet.new({'name' => "Bruno", 'type ' => 'dog'}, runner)
-pet2 = Pet.new({'name' => "Sedrick", 'type' => 'snake'}, runner)
-binding.pry
-pet.save()
-pet2.save()
 
-# pet_store1 = Pet_Store.new({'name' => "Jimmy's Snakes", 'address' => '1 Rumba Street', 'type' => 'creepy'}, runner)
+# pet2 = Pet.new({'name' => "Sedrick", 'type' => 'snake'}, pet_store.id, runner)
+pet_store = PetStore.new({'name' => "Jimmys Snakes", 'address' => "1 Rumba Street", 'type' => "creepy"}, runner)
+pet_store.save()
 
-# pet_store1.save()
+pet3 = Pet.new({'name' => "Bruno", 'type ' => 'dog', 'pet_store_id' => pet_store.id}, runner)
 
+
+pet3.save()
+
+
+# binding.pry
 
 
 
